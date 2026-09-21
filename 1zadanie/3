@@ -1,0 +1,39 @@
+<ul>
+    <li>kubsu.ru 1</li>
+    <a href="http://kubsu.ru/">КубГу</a>
+    <li> </li>
+    <a href="https://snowshowgames.github.io/#imagemap-block">Изображение</a>
+    <a href="http://kubsu.ru/about">0</a>
+    <p id="http://kubsu.ru/">Фрагмент страницы</p>
+    <h1 id="#element_id">Фрагмент</h1>
+    <a href="http://kubsu.ru/">КубГу</a>
+    <li> </li>
+    <a href="/">КубГу</a>
+    <a href="./hello">КубГу</a>
+    <h2 id="scet1">Фрагмент</h2>
+    <a href="#scet1">FFFFF</a>
+    <a href="https://snowshowgames.github.io/?user=dev&theme=light&font=Calibri">GGGGGGG</a>
+    <a href="https://snowshowgames.github.io/?id=345678908765">HHHHHHHH</a>
+    <a href="about.html">JJJ</a>
+    <li> </li>
+    <!--<a href="https://snowshowgames.github.io/1zadanie/image.jpg">dsfsfefew</a>-->
+    <a href="https://snowshowgames.github.io/core/">12</a>
+    <a href="page.html">page</a>
+    <a href="about/2page.html">2page</a>
+    <li> </li>
+    <a href="../3page.html">uuuiiii</a>
+    <li> </li>
+    <a href="../../4page.html">oiweio</a>
+    <a href=""> </a>
+    <p>
+        Нажми на кнопку
+        <a href="indf.html">тык</a>
+    </p>
+    <a href="https://yandex.ru/support/wiki/ru/wysiwyg/include#instal_ppy">example</a>
+    <li> </li>
+    <img src="poto.jpg" width="512" height="1024" usemap="#menumap"
+         <map name="menumap">
+             <area shape="rect" coords="0,0,50,50" href="page.html#p1">
+             <area shape="circle" coords="100,100,20" href="about/2page.html">
+    </map>
+</ul>
