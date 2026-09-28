@@ -1,0 +1,21 @@
+header{
+    color: #f32d
+    background-color:wheat;
+    background-image:url(i.webp);
+    background-position: left top;
+    background-size: 50%;
+}
+<header>
+
+</header>
+
+div.code{
+    font-size: 12pt;
+    font-family:sans-serif,monotype;
+    font-weight:bold;
+    font-style:italic;
+    line-height:120%;
+}
+<div-class="code">
+    Параграф текста.
+</div>
