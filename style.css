@@ -217,10 +217,10 @@ footer {
 
 .footer-inner {
     max-width: 960px;
-    margin: 0 auto; /* центрирование контейнера */
+    margin: 0 auto; /* С†РµРЅС‚СЂРёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° */
     padding: 14px 16px;
     display: flex;
-    justify-content: center; /* текст по центру */
+    justify-content: center; /* С‚РµРєСЃС‚ РїРѕ С†РµРЅС‚СЂСѓ */
     align-items: center;
     font-size: 15px;
 }
