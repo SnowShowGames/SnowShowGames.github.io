@@ -62,7 +62,7 @@ nav {
     font-size: -50px;
     font-weight: bold;
     color: #170c0c;
-    margin-left: -490px;
+    margin-left: -390px;
 }
 
 #links ol {
@@ -123,6 +123,7 @@ nav {
 #table tbody tr:nth-child(odd) {
     background: #ffffff;
 }
+
 #form form {
     display: flex;
     flex-direction: column;
@@ -217,10 +218,63 @@ footer {
 
 .footer-inner {
     max-width: 960px;
-    margin: 0 auto; /* центрирование контейнера */
+    margin: 0 auto;
     padding: 14px 16px;
     display: flex;
-    justify-content: center; /* текст по центру */
+    justify-content: center;
     align-items: center;
     font-size: 15px;
+}
+
+div.content {
+    max-width: 960px;
+    margin: 0 auto;
+
+
+}
+
+#table {order:1;}
+#links {order:2;}
+#form {order:3;}
+
+@media (min-width:786px){
+    .header-inner,
+    main,
+    .footer-inner{
+        max-width:960px;
+        margin:0 auto;
+    }
+
+    .header-inner{
+        flex-direction:row;
+        align-items:center;
+        padding:12px 16px 12px 0;
+        gap:20px;
+    }
+
+    .logo{
+        margin-left:-10px;
+    }
+
+    .header-right {
+        flex:1;
+        align-items:flex-start;
+    }
+
+    nav {
+        flex-direction:row;
+        gap:20px;
+        flex-wrap:wrap;
+        width:auto;
+        align-items:center;
+    }
+
+    .site-name{
+        text-align:left;
+        font-size:18px;
+    }
+
+    #links {order:0;}
+    #table {order:0;}
+    #form {order:0;}
 }
