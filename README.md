@@ -21,3 +21,5 @@ https://moodle.kubsu.ru/course/view.php?id=780
 <img width="666" height="128" alt="image" src="https://github.com/user-attachments/assets/71c10b0c-fb04-436d-be88-3f1cfb27172b" />
 
 <img width="702" height="900" alt="image" src="https://github.com/user-attachments/assets/bfd8b9bc-c623-4dfd-a526-4bebe1c3ebae" />
+
+<img width="667" height="367" alt="image" src="https://github.com/user-attachments/assets/fe71ae7e-e50b-4bb9-b18e-dbda460a3dda" />
