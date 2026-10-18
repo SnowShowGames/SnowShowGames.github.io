@@ -3,144 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 2</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Задание 2 (Bootstrap)</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100 bg-light">
 
-    <header>
-        <div class="header-inner">
-            <div class="logo">
-                <img src="i.webp" alt="Лого">
-            </div>
-            <div class="header-right">
-                <nav>
-                    <a href="#">Ссылка 1</a>
-                    <a href="#">Ссылка 2</a>
-                    <a href="#">Ссылка 3</a>
-                </nav>
-                <div class="site-name">Задание 2</div>
+    <!-- Шапка (Header) -->
+    <header class="bg-primary py-3 w-100">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                <div class="me-md-3">
+                    <img src="i.webp" alt="Лого" class="rounded-circle border border-danger" style="width: 80px; height: 80px; object-fit: cover;">
+                </div>
+                <div class="flex-grow-1 w-100 text-center text-md-start">
+                    <nav class="d-flex flex-column flex-md-row gap-2 gap-md-4 mb-2">
+                        <a href="#" class="text-white text-decoration-none">Ссылка 1</a>
+                        <a href="#" class="text-white text-decoration-none">Ссылка 2</a>
+                        <a href="#" class="text-white text-decoration-none">Ссылка 3</a>
+                    </nav>
+                    <div class="fw-bold text-dark">Задание 2</div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Основной контент -->
-    <div class="content">
-        
-        <section class="block" id="links">
-            <h2>Список гиперссылок</h2>
-            <ol>
-                <li><a href="same_page.html">Ссылка в текущем каталоге</a></li>
-                <li><a href="about/page.html">О нас</a></li>
-                <li><a href="../2page.html">Уровень ниже</a></li>
-                <li><a href="../../3page.html">2 уровня ниже</a></li>
-                <li><a href="https://yandex.ru/support/wiki/ru/wysiwyg/include#instal_ppy">Фрагмент с другого сайта</a></li>
-                <li><a href="indf.html" rel="nofollow">Ссылка, не для поисковиков</a></li>
-                <li><a href="ftp://student:pass123@ftp.example.com/files/document.pdf">Ссылка</a></li>
-                <li><a href="#">Наверх</a></li>
-            </ol>
-        </section>
+    <!-- Основной контент (Main) -->
+    <main class="flex-grow-1 py-4">
+        <div class="container">
+            <div class="row g-4 d-flex flex-column flex-md-row">
 
-        <section class="block" id="table">
-            <h2>Таблица</h2>
-            <table>
-                <caption>Пример таблицы с объединёнными ячейками</caption>
-                <thead>
-                    <tr>
-                        <th>Колонка 1</th>
-                        <th>Колонка 2</th>
-                        <th>Колонка 3</th>
-                        <th>Колонка 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Объединено<br>по строкам</td>
-                        <td>Колонка 1</td>
-                        <td>Колонка 2</td>
-                        <td>Колонка 3</td>
-                    </tr>
-                    <tr>
-                        <td>Колонка 4</td>
-                        <td>Колонка 5</td>
-                        <td>Колонка 6</td>
-                    </tr>
-                    <tr>
-                        <td>Колонка 7</td>
-                        <td colspan="2">Объединено по столбцам</td>
-                        <td>Колонка 8</td>
-                    </tr>
-                    <tr>
-                        <td>Колонка 9</td>
-                        <td>Колонка 10</td>
-                        <td>Колонка 11</td>
-                        <td>Колонка 12</td>
-                    </tr>
-                    <tr>
-                        <td>Колонка 13</td>
-                        <td>Колонка 14</td>
-                        <td>Колонка 15</td>
-                        <td>Колонка 16</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+                <!-- Блок со списком -->
+                <div class="col-12 col-md-6 order-2 order-md-1">
+                    <div class="p-3 bg-primary-subtle h-100">
+                        <h2 class="h4">Список гиперссылок</h2>
+                        <ol class="mb-0">
+                            <li><a href="same_page.html">Ссылка в текущем каталоге</a></li>
+                            <li><a href="about/page.html">О нас</a></li>
+                            <li><a href="../2page.html">Уровень ниже</a></li>
+                            <li><a href="../../3page.html">2 уровня ниже</a></li>
+                            <li><a href="https://yandex.ru/support/wiki/ru/wysiwyg/include#instal_ppy">Фрагмент с другого сайта</a></li>
+                            <li><a href="indf.html" rel="nofollow">Ссылка, не для поисковиков</a></li>
+                            <li><a href="ftp://student:pass123@ftp.example.com/files/document.pdf">Ссылка</a></li>
+                            <li><a href="#">Наверх</a></li>
+                        </ol>
+                    </div>
+                </div>
 
-        <section class="block" id="form">
-            <h2>Форма</h2>
-            <form action="save.php" method="post">
-                <label for="lastname">Фамилия:</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Иванов" autocomplete="family-name" required>
+                <!-- Блок с таблицей -->
+                <div class="col-12 col-md-6 order-1 order-md-2">
+                    <div class="p-3 bg-primary-subtle h-100 overflow-auto">
+                        <h2 class="h4">Таблица</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped align-middle">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Колонка 1</th>
+                                        <th>Колонка 2</th>
+                                        <th>Колонка 3</th>
+                                        <th>Колонка 4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Объединено<br>по строкам</td>
+                                        <td>Колонка 1</td>
+                                        <td>Колонка 2</td>
+                                        <td>Колонка 3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Колонка 4</td>
+                                        <td>Колонка 5</td>
+                                        <td>Колонка 6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Колонка 7</td>
+                                        <td colspan="2">Объединено по столбцам</td>
+                                        <td>Колонка 8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Колонка 9</td>
+                                        <td>Колонка 10</td>
+                                        <td>Колонка 11</td>
+                                        <td>Колонка 12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Колонка 13</td>
+                                        <td>Колонка 14</td>
+                                        <td>Колонка 15</td>
+                                        <td>Колонка 16</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-                <label for="firstname">Имя:</label>
-                <input type="text" id="firstname" name="firstname" placeholder="Иван" autocomplete="given-name" required>
+                <!-- Блок с картинкой и картой кликов (poto.png) -->
+                <div class="col-12 mt-4">
+                    <div class="p-3 bg-primary-subtle text-center">
+                        <h2 class="h4 text-start">Картинка с картой</h2>
+                        <!-- Картинка: на мобильных будет 100% ширины, но не больше 512px -->
+                        <img src="poto.png" alt="Карта" usemap="#menumap" class="img-fluid">
+                        
+                        <!-- Карта кликов -->
+                        <map name="menumap">
+                            <area shape="rect" coords="0,0,80,80" href="2page.html" alt="Прямоугольник">
+                            <area shape="circle" coords="150,100,40" href="about/page.html" alt="Круг">
+                        </map>
+                    </div>
+                </div>
 
-                <label for="middlename">Отчество:</label>
-                <input type="text" id="middlename" name="middlename" placeholder="Иванович" autocomplete="additional-name">
+                <!-- Блок с формой -->
+                <div class="col-12 mt-4">
+                    <div class="p-4 bg-primary-subtle">
+                        <h2 class="h4">Форма</h2>
+                        <form action="save.php" method="post" class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="lastname" class="form-label">Фамилия:</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Иванов" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="firstname" class="form-label">Имя:</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Иван" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="middlename" class="form-label">Отчество:</label>
+                                <input type="text" class="form-control" id="middlename" name="middlename" placeholder="Иванович">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="phone" class="form-label">Телефон:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="birthdate" class="form-label">Дата рождения:</label>
+                                <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                            </div>
 
-                <label for="phone">Телефон:</label>
-                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" autocomplete="tel" pattern="\+7\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}" title="Формат: +7 (999) 123-45-67" required>
+                            <!-- Чекбоксы -->
+                            <div class="col-12">
+                                <fieldset class="border p-3 rounded">
+                                    <legend class="float-none w-auto px-2 fs-6">Любимые языки программирования:</legend>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="pascal" id="lang1"><label class="form-check-label" for="lang1">Pascal</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="c" id="lang2"><label class="form-check-label" for="lang2">C</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="cpp" id="lang3"><label class="form-check-label" for="lang3">C++</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="js" id="lang4"><label class="form-check-label" for="lang4">JavaScript</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="php" id="lang5"><label class="form-check-label" for="lang5">PHP</label></div>
+                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="langs[]" value="python" id="lang6"><label class="form-check-label" for="lang6">Python</label></div>
+                                    </div>
+                                </fieldset>
+                            </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                            <div class="col-12">
+                                <label for="bio" class="form-label">Биография:</label>
+                                <textarea class="form-control" id="bio" name="bio" rows="4" placeholder="Расскажите о себе..."></textarea>
+                            </div>
 
-                <label for="birthdate">Дата рождения:</label>
-                <input type="date" id="birthdate" name="birthdate" min="1900-01-01" autocomplete="bday" required>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="agree" id="agree" required>
+                                    <label class="form-check-label" for="agree">С контрактом ознакомлен(а)</label>
+                                </div>
+                            </div>
 
-                <fieldset>
-                    <legend>Любимые языки программирования:</legend>
-                    <label><input type="checkbox" name="langs[]" value="pascal"> Pascal</label>
-                    <label><input type="checkbox" name="langs[]" value="c"> C</label>
-                    <label><input type="checkbox" name="langs[]" value="cpp"> C++</label>
-                    <label><input type="checkbox" name="langs[]" value="js"> JavaScript</label>
-                    <label><input type="checkbox" name="langs[]" value="php"> PHP</label>
-                    <label><input type="checkbox" name="langs[]" value="python"> Python</label>
-                    <label><input type="checkbox" name="langs[]" value="java"> Java</label>
-                    <label><input type="checkbox" name="langs[]" value="haskell"> Haskell</label>
-                    <label><input type="checkbox" name="langs[]" value="clojure"> Clojure</label>
-                    <label><input type="checkbox" name="langs[]" value="prolog"> Prolog</label>
-                    <label><input type="checkbox" name="langs[]" value="scala"> Scala</label>
-                </fieldset>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary px-4">Сохранить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-                <label for="bio">Биография:</label>
-                <textarea id="bio" name="bio" rows="6" maxlength="1000" placeholder="Расскажите о себе..."></textarea>
+            </div>
+        </div>
+    </main>
 
-                <label class="agree-label">
-                    <input type="checkbox" name="agree" value="yes" required>
-                    С контрактом ознакомлен(а)
-                </label>
-
-                <button type="submit">Сохранить</button>
-            </form>
-        </section>
-
-    </div>
-
-    <footer>
-        <div class="footer-inner">
-            (с) Сергей Синица
+    <!-- Футер (Footer) -->
+    <footer class="bg-primary-subtle py-3 mt-auto w-100 text-center">
+        <div class="container">
+            <span class="text-dark">(с) Сергей Синица</span>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
