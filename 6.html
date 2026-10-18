@@ -1,0 +1,156 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости заказа</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .calculator {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #dbd19a;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .d-none {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h2 class="text-center mb-4">Калькулятор заказа</h2>
+            <div class="mb-3">
+                <label for="typeSelect" class="form-label">Выберите тип товара:</label>
+                <select id="typeSelect" class="form-select">
+                    <option value="1">Тип 1 (Базовый, без опций)</option>
+                    <option value="2">Тип 2 (Только опции - селект)</option>
+                    <option value="3">Тип 3 (Только свойство - чекбокс)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="productSelect" class="form-label">Выберите товар:</label>
+                <select id="productSelect" class="form-select">
+                </select>
+            </div>
+            <div id="optionsBlock" class="mb-3 d-none">
+                <label for="optionsSelect" class="form-label">Дополнительная опция:</label>
+                <select id="optionsSelect" class="form-select">
+                    <option value="0">Без опции (0 руб.)</option>
+                    <option value="100">Опция А (+100 руб.)</option>
+                    <option value="250">Опция Б (+250 руб.)</option>
+                </select>
+            </div>
+            <div id="propertiesBlock" class="mb-3 d-none">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="propCheckbox" value="500">
+                    <label class="form-check-label" for="propCheckbox">
+                        Дополнительное свойство (+500 руб.)
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="quantityInput" class="form-label">Количество:</label>
+                <input type="number" id="quantityInput" class="form-control" value="1" min="1">
+            </div>
+
+            <div id="result" class="text-center"></div>
+        </div>
+    </div>
+
+    <script>
+        const typeSelect = document.getElementById('typeSelect');
+        const productSelect = document.getElementById('productSelect');
+        const optionsBlock = document.getElementById('optionsBlock');
+        const optionsSelect = document.getElementById('optionsSelect');
+        const propertiesBlock = document.getElementById('propertiesBlock');
+        const propCheckbox = document.getElementById('propCheckbox');
+        const quantityInput = document.getElementById('quantityInput');
+        const resultDiv = document.getElementById('result');
+
+        const productsData = {
+            "1": [
+                { name: "Базовая мышь", price: 300 },
+                { name: "Базовая клавиатура", price: 500 }
+            ],
+            "2": [
+                { name: "Игровая мышь", price: 1500 },
+                { name: "Игровая клавиатура", price: 2500 }
+            ],
+            "3": [
+                { name: "Монитор", price: 10000 },
+                { name: "Проектор", price: 20000 }
+            ]
+        };
+
+        function updateProducts() {
+            const currentType = typeSelect.value;
+
+            productSelect.innerHTML = '';
+
+            const products = productsData[currentType];
+
+            products.forEach(function (item, index) {
+                const option = document.createElement('option');
+                option.value = item.price;
+                option.textContent = item.name + " (" + item.price + " руб.)";
+                productSelect.appendChild(option);
+            });
+
+            if (currentType === "1") {
+                optionsBlock.classList.add('d-none');
+                propertiesBlock.classList.add('d-none');
+            } else if (currentType === "2") {
+                optionsBlock.classList.remove('d-none');
+                propertiesBlock.classList.add('d-none');
+            } else if (currentType === "3") {
+                optionsBlock.classList.add('d-none');
+                propertiesBlock.classList.remove('d-none');
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const basePrice = Number(productSelect.value);
+            const quantity = Number(quantityInput.value);
+            let extraPrice = 0;
+
+            if (!optionsBlock.classList.contains('d-none')) {
+                extraPrice += Number(optionsSelect.value);
+            }
+
+            if (!propertiesBlock.classList.contains('d-none') && propCheckbox.checked) {
+                extraPrice += Number(propCheckbox.value);
+            }
+
+            const pricePerItem = basePrice + extraPrice;
+            const total = pricePerItem * quantity;
+
+            if (quantity < 1 || isNaN(quantity) || basePrice === 0) {
+                resultDiv.textContent = "Укажите корректное количество.";
+                resultDiv.style.color = "red";
+            } else {
+                resultDiv.textContent = "Итоговая стоимость: " + total + " руб.";
+                resultDiv.style.color = "#0d6efd";
+            }
+        }
+
+        typeSelect.addEventListener('change', updateProducts);
+
+        quantityInput.addEventListener('input', calculateTotal);
+        productSelect.addEventListener('change', calculateTotal);
+        optionsSelect.addEventListener('change', calculateTotal);
+        propCheckbox.addEventListener('change', calculateTotal);
+        updateProducts();
+
+    </script>
+</body>
+</html>
