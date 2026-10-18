@@ -1,12 +1,18 @@
-<ul>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
     <header>
         <div class="header-inner">
             <div class="logo">
                 <img src="i.webp" alt="Лого">
             </div>
-            <div class="header-right">
-            </div>
-
             <div class="header-right">
                 <nav>
                     <a href="#">Ссылка 1</a>
@@ -17,10 +23,12 @@
             </div>
         </div>
     </header>
+
+    <!-- Основной контент -->
     <div class="content">
+        
         <section class="block" id="links">
             <h2>Список гиперссылок</h2>
-
             <ol>
                 <li><a href="same_page.html">Ссылка в текущем каталоге</a></li>
                 <li><a href="about/page.html">О нас</a></li>
@@ -32,12 +40,11 @@
                 <li><a href="#">Наверх</a></li>
             </ol>
         </section>
+
         <section class="block" id="table">
             <h2>Таблица</h2>
-
             <table>
                 <caption>Пример таблицы с объединёнными ячейками</caption>
-
                 <thead>
                     <tr>
                         <th>Колонка 1</th>
@@ -46,7 +53,6 @@
                         <th>Колонка 4</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr>
                         <td rowspan="2">Объединено<br>по строкам</td>
@@ -79,215 +85,62 @@
                 </tbody>
             </table>
         </section>
+
         <section class="block" id="form">
             <h2>Форма</h2>
-
             <form action="save.php" method="post">
-
-                <!-- ФИО: три поля -->
                 <label for="lastname">Фамилия:</label>
-                <input type="text" id="lastname" name="lastname"
-                       placeholder="Иванов"
-                       autocomplete="family-name" required>
+                <input type="text" id="lastname" name="lastname" placeholder="Иванов" autocomplete="family-name" required>
 
                 <label for="firstname">Имя:</label>
-                <input type="text" id="firstname" name="firstname"
-                       placeholder="Иван"
-                       autocomplete="given-name" required>
+                <input type="text" id="firstname" name="firstname" placeholder="Иван" autocomplete="given-name" required>
 
                 <label for="middlename">Отчество:</label>
-                <input type="text" id="middlename" name="middlename"
-                       placeholder="Иванович"
-                       autocomplete="additional-name">
+                <input type="text" id="middlename" name="middlename" placeholder="Иванович" autocomplete="additional-name">
 
-                <!-- Телефон -->
                 <label for="phone">Телефон:</label>
-                <input type="tel" id="phone" name="phone"
-                       placeholder="+7 (999) 123-45-67"
-                       autocomplete="tel"
-                       pattern="\+7\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}"
-                       title="Формат: +7 (999) 123-45-67"
-                       required>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" autocomplete="tel" pattern="\+7\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}" title="Формат: +7 (999) 123-45-67" required>
 
-                <!-- Email -->
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"
-                       placeholder="you@example.com"
-                       autocomplete="email"
-                       required>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
 
-                <!-- Дата рождения -->
                 <label for="birthdate">Дата рождения:</label>
-                <input type="date" id="birthdate" name="birthdate"
-                       min="1900-01-01"
-                       autocomplete="bday"
-                       required>
+                <input type="date" id="birthdate" name="birthdate" min="1900-01-01" autocomplete="bday" required>
 
-                <!-- Любимые языки программирования -->
                 <fieldset>
                     <legend>Любимые языки программирования:</legend>
-
-                    <label><input type="checkbox" name="langs[]" value="pascal">   Pascal</label>
-                    <label><input type="checkbox" name="langs[]" value="c">        C</label>
-                    <label><input type="checkbox" name="langs[]" value="cpp">      C++</label>
-                    <label><input type="checkbox" name="langs[]" value="js">       JavaScript</label>
-                    <label><input type="checkbox" name="langs[]" value="php">      PHP</label>
-                    <label><input type="checkbox" name="langs[]" value="python">   Python</label>
-                    <label><input type="checkbox" name="langs[]" value="java">     Java</label>
-                    <label><input type="checkbox" name="langs[]" value="haskell">  Haskell</label>
-                    <label><input type="checkbox" name="langs[]" value="clojure">  Clojure</label>
-                    <label><input type="checkbox" name="langs[]" value="prolog">   Prolog</label>
-                    <label><input type="checkbox" name="langs[]" value="scala">    Scala</label>
+                    <label><input type="checkbox" name="langs[]" value="pascal"> Pascal</label>
+                    <label><input type="checkbox" name="langs[]" value="c"> C</label>
+                    <label><input type="checkbox" name="langs[]" value="cpp"> C++</label>
+                    <label><input type="checkbox" name="langs[]" value="js"> JavaScript</label>
+                    <label><input type="checkbox" name="langs[]" value="php"> PHP</label>
+                    <label><input type="checkbox" name="langs[]" value="python"> Python</label>
+                    <label><input type="checkbox" name="langs[]" value="java"> Java</label>
+                    <label><input type="checkbox" name="langs[]" value="haskell"> Haskell</label>
+                    <label><input type="checkbox" name="langs[]" value="clojure"> Clojure</label>
+                    <label><input type="checkbox" name="langs[]" value="prolog"> Prolog</label>
+                    <label><input type="checkbox" name="langs[]" value="scala"> Scala</label>
                 </fieldset>
 
-                <!-- Биография -->
                 <label for="bio">Биография:</label>
-                <textarea id="bio" name="bio"
-                          rows="6"
-                          maxlength="1000"
-                          placeholder="Расскажите о себе..."></textarea>
+                <textarea id="bio" name="bio" rows="6" maxlength="1000" placeholder="Расскажите о себе..."></textarea>
 
-                <!-- Согласие с контрактом -->
                 <label class="agree-label">
                     <input type="checkbox" name="agree" value="yes" required>
                     С контрактом ознакомлен(а)
                 </label>
 
-                <!-- Кнопка -->
                 <button type="submit">Сохранить</button>
-
             </form>
         </section>
-        <h1 id="#element_id">-HTML-</h1>
-        <a href="http://kubsu.ru">Kubsu</a>
-    <li></li>
-    <a href="https://kubsu.ru/">Kubsu-https</a>
-    <li></li>
-    <a href="image.jpg">Изображение</a>
-    <li></li>
-    <img src="image.jpg" alt="Картинка" width="560" height="420">
-    <li></li>
-    <a href="bound_page.html">Внутрянка</a>
-    <li></li>
-    <a href="./index.html">Главная</a>
-    <li></li>
-    <h2 id="section2">Раздел 2</h2>
-    <a href="#section2">К разделу 2</a>
-    <li></li>
-    <a href="https://snowshowgames.github.io/?user=dev&theme=light&font=calibri">3 Параметра</a>
-    <li></li>
-    <a href="https://snowshowgames.github.io/?id=345678908765">С ID</a>
-    <li></li>
-    <a href="same_page.html">Ссылка в текущем каталоге</a>
-    <li></li>
-    <a href="about/page.html">О нас</a>
-    <li></li>
-    <a href="../2page.html">Уровень ниже</a>
-    <li></li>
-    <a href="../../3page.html">2 уровня ниже</a>
-    <li></li>
-    <p>
-        Нажми на кнопку
-        <a href="indf.html">тык</a>
-    </p>
-    <li></li>
-    <a href="https://yandex.ru/support/wiki/ru/wysiwyg/include#instal_ppy">Фрагмент с другого сайта</a>
-    <li></li>
-    <img src="poto.png" width="512" height="256" usemap="#menumap">
-    <map name="menumap">
-        <area shape="rect" coords="0,0,80,80" href="2page.html">
-        <area shape="circle" coords="150,100,40" href="about/page.html">
-    </map>
-    <li></li>
-    <a href="">Пустая ссылка</a>
-    <li></li>
-    <a href="indf.html" rel="nofollow">Ссылка, не для поисковиков</a>
-    <li></li>
-    <meta name="robots" content="noidex, nofollow">
-    <li></li>
-    <ol>
-        <li>
-            <a href="1.html" title="Перейти на первую страницу">Первая</a>
-        </li>
-        <li>
-            <a href="2page.html" title="Перейти на вторую страницу">Вторая</a>
-        </li>
-        <li>
-            <a href="about/page.html" title="О нас">О нас</a>
-        </li>
-    </ol>
-    <a href="ftp://student:pass123@ftp.example.com/files/document.pdf">Ссылка</a>
-    <li></li>
-    <label for="fio">ФИО:</label>
-    <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович">
-    <li></li>
-    <label for="phone">Телефон:</label>
-    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
-    <li></li>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com">
-    <li></li>
-    <label for="birthdate">Дата рождения:</label>
-    <input type="date" id="birthdate" name="birthdate">
-    <li></li>
-    <label for="langs">Любимые языки программирования:</label>
-    <select id="langs" name="langs[]" multiple size="11">
-        <option value="pascal">Pascal</option>
-        <option value="c">C</option>
-        <option value="cpp">C++</option>
-        <option value="js">JavaScript</option>
-        <option value="php">PHP</option>
-        <option value="python">Python</option>
-        <option value="java">Java</option>
-        <option value="haskell">Haskell</option>
-        <option value="clojure">Clojure</option>
-        <option value="prolog">Prolog</option>
-        <option value="scala">Scala</option>
-    </select>
-    <li></li>
-    <label for="bio">Биография:</label>
-<textarea id="bio" name="bio" rows="8" cols="50" placeholder="Расскажите о себе..."></textarea>
-    <li></li>
-    <label>
-        <input type="checkbox" name="agree" required>
-        С контрактом ознакомлен(а)
-    </label>
-    <li></li>
-    <input type="submit" value="Сохранить">
-    <li>ИЛИ</li>
-    <button type="submit">Сохранить</button>
-    <li></li>
-    <section class="block">
-        <h2>Список гиперссылок</h2>
-        <ol>
-            <li><a href="same_page.html">Ссылка в текущем каталоге</a></li>
-            <li><a href="about/page.html">О нас</a></li>
-            <li><a href="../2page.html">Уровень ниже</a></li>
-            <li><a href="../../3page.html">2 уровня ниже</a></li>
-            <li><a href="https://yandex.ru/support/wiki/ru/wysiwyg/include#instal_ppy">Фрагмент с другого сайта</a></li>
-            <li><a href="indf.html" rel="nofollow">Ссылка, не для поисковиков</a></li>
-            <li><a href="ftp://student:pass123@ftp.example.com/files/document.pdf">Ссылка</a></li>
-            <li><a href="#">Наверх</a></li>
-        </ol>
-    </section>
-    <li></li>
-    <section class="block" id="table">
-        <h2>Таблица</h2>
-        <table>
-        </table>
-    </section>
-    <li></li>
-    <section class="block" id="form">
-        <h2>Форма</h2>
-        <form>
-        </form>
-    </section>
-    <link rel="stylesheet" href="style.css">
-    <img src="i.webp" alt="Logo">
+
     </div>
+
     <footer>
         <div class="footer-inner">
             (с) Сергей Синица
         </div>
     </footer>
-</ul>
+
+</body>
+</html>
