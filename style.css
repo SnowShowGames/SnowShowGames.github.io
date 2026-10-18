@@ -4,19 +4,34 @@
     padding: 0;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
 header {
     width: 100%;
     background: #0094ff;
 }
 
+footer {
+    width: 100%;
+    background: #a8c4e6;
+    color: #1a3d6b;
+}
+
 .header-inner {
+    width: 100%;
     max-width: 960px;
     margin: 0 auto;
-    padding: 12px 16px 12px 0;
+    padding: 12px 16px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .logo {
@@ -26,45 +41,64 @@ header {
     overflow: hidden;
     border: 1px solid #ff0000;
     flex-shrink: 0;
-    margin-left: -190px;
 }
 
-    .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 .header-right {
-    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 10px;
 }
 
 nav {
+    width: 100%;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-    nav a {
-        color: #b77474;
-        text-decoration: none;
-        white-space: nowrap;
-    }
+nav a {
+    color: #b77474;
+    text-decoration: none;
+    padding: 4px 0;
+    white-space: nowrap;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+nav a:hover {
+    text-decoration: underline;
+}
 
 .site-name {
-    font-size: -50px;
+    font-size: 18px;
     font-weight: bold;
     color: #170c0c;
-    margin-left: -390px;
+    text-align: center;
 }
+
+div.content {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#table { order: 1; }
+#links { order: 2; }
+#form  { order: 3; }
 
 #links ol {
     margin: 10px 0 0 20px;
@@ -82,10 +116,10 @@ nav {
     text-decoration: none;
 }
 
-    #links a:hover {
-        text-decoration: underline;
-        color: #b6ff00;
-    }
+#links a:hover {
+    text-decoration: underline;
+    color: #b6ff00;
+}
 
 #table table {
     width: 100%;
@@ -117,20 +151,16 @@ nav {
     font-weight: bold;
 }
 
-#table tbody tr:nth-child(even) {
-    background: #78cb51;
-}
-
-#table tbody tr:nth-child(odd) {
-    background: #ffffff;
-}
+#table tbody tr:nth-child(even) { background: #78cb51; }
+#table tbody tr:nth-child(odd)  { background: #ffffff; }
 
 #form form {
     display: flex;
     flex-direction: column;
     gap: 6px;
     max-width: 520px;
-    margin-top: 10px;
+    margin: 10px auto 0;
+    width: 100%;
 }
 
 #form label {
@@ -166,19 +196,19 @@ nav {
     gap: 8px 20px;
 }
 
-    #form fieldset legend {
-        font-weight: bold;
-        padding: 0 6px;
-    }
+#form fieldset legend {
+    font-weight: bold;
+    padding: 0 6px;
+}
 
-    #form fieldset label {
-        font-weight: normal;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
-        margin: 0;
-    }
+#form fieldset label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    margin: 0;
+}
 
 #form .agree-label {
     display: flex;
@@ -201,23 +231,12 @@ nav {
     font-size: 15px;
 }
 
-    #form button[type="submit"]:hover {
-        background: #3a5a85;
-    }
-
-#form input:invalid,
-#form textarea:invalid {
-    border-color: #e74c3c;
-}
-
-footer {
-    width: 100%;
-    background: #a8c4e6;
-    color: #1a3d6b;
-    margin-top: 20px;
+#form button[type="submit"]:hover {
+    background: #3a5a85;
 }
 
 .footer-inner {
+    width: 100%;
     max-width: 960px;
     margin: 0 auto;
     padding: 14px 16px;
@@ -227,29 +246,7 @@ footer {
     font-size: 15px;
 }
 
-header,
-footer {
-    width:100%;
-}
-
-div.content {
-    max-width: 960px;
-    margin: 0 auto;
-    
-    flex:1;
-    padding:16px;
-
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-
-#table {order:1;}
-#links {order:2;}
-#form {order:3;}
-
-@media (min-width:768px){
+@media (min-width: 768px) {
     .header-inner {
         flex-direction: row;
         align-items: center;
@@ -258,7 +255,7 @@ div.content {
     }
 
     .logo {
-        margin-left: -10px; /* Легкий сдвиг для красоты */
+        margin-left: -10px;
     }
 
     .header-right {
@@ -267,7 +264,6 @@ div.content {
         gap: 6px;
     }
 
-    /* Меню горизонтально */
     nav {
         flex-direction: row;
         gap: 20px;
@@ -280,7 +276,6 @@ div.content {
         text-align: left;
     }
 
-    /* Возвращаем правильный порядок блоков */
     #links { order: 0; }
     #table { order: 0; }
     #form  { order: 0; }
