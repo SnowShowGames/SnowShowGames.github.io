@@ -249,44 +249,39 @@ div.content {
 #links {order:2;}
 #form {order:3;}
 
-@media (min-width:786px){
- .header-inner,
-    div.content,
-    .footer-inner{
-        max-width:960px;
-        margin:0 auto;
+@media (min-width:768px){
+    .header-inner {
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 16px 12px 0;
+        gap: 20px;
     }
 
-    .header-inner{
-        flex-direction:row;
-        align-items:center;
-        padding:12px 16px 12px 0;
-        gap:20px;
-    }
-
-    .logo{
-        margin-left:-10px;
+    .logo {
+        margin-left: -10px; /* Легкий сдвиг для красоты */
     }
 
     .header-right {
-        flex:1;
-        align-items:flex-start;
+        flex: 1;
+        align-items: flex-start;
+        gap: 6px;
     }
 
+    /* Меню горизонтально */
     nav {
-        flex-direction:row;
-        gap:20px;
-        flex-wrap:wrap;
-        width:auto;
-        align-items:center;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: auto;
+        align-items: center;
     }
 
-    .site-name{
-        text-align:left;
-        font-size:18px;
+    .site-name {
+        text-align: left;
     }
 
-    #links {order:0;}
-    #table {order:0;}
-    #form {order:0;}
+    /* Возвращаем правильный порядок блоков */
+    #links { order: 0; }
+    #table { order: 0; }
+    #form  { order: 0; }
 }
