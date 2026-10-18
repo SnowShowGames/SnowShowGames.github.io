@@ -250,39 +250,43 @@ div.content {
 #form {order:3;}
 
 @media (min-width:786px){
-         .header-inner {
-        flex-direction: row;
-        align-items: center;
-        padding: 12px 16px 12px 0;
-        gap: 20px;
-        max-width: 960px;
-        margin: 0 auto;
+ .header-inner,
+    div.content,
+    .footer-inner{
+        max-width:960px;
+        margin:0 auto;
     }
-    .logo {
-        margin-left: -10px; /* Легкий сдвиг влево для красоты */
+
+    .header-inner{
+        flex-direction:row;
+        align-items:center;
+        padding:12px 16px 12px 0;
+        gap:20px;
+    }
+
+    .logo{
+        margin-left:-10px;
     }
 
     .header-right {
-        flex: 1;
-        align-items: flex-start;
-        gap: 6px;
+        flex:1;
+        align-items:flex-start;
     }
 
-    /* Меню горизонтально */
     nav {
-        flex-direction: row;
-        gap: 20px;
-        flex-wrap: wrap;
-        width: auto;
-        align-items: center;
+        flex-direction:row;
+        gap:20px;
+        flex-wrap:wrap;
+        width:auto;
+        align-items:center;
     }
 
-    .site-name {
-        text-align: left;
+    .site-name{
+        text-align:left;
+        font-size:18px;
     }
 
-    /* Сброс порядка: блоки идут как в HTML */
-    #links { order: 0; }
-    #table { order: 0; }
-    #form  { order: 0; }
+    #links {order:0;}
+    #table {order:0;}
+    #form {order:0;}
 }
