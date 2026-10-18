@@ -229,8 +229,13 @@ footer {
 div.content {
     max-width: 960px;
     margin: 0 auto;
+    
+    flex:1;
+    text-align:center
 
-
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
 #table {order:1;}
@@ -239,7 +244,7 @@ div.content {
 
 @media (min-width:786px){
     .header-inner,
-    main,
+    div.content,
     .footer-inner{
         max-width:960px;
         margin:0 auto;
