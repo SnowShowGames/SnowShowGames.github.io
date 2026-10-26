@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея-слайдер</title>
+    
+    <!-- Подключение CSS Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Ограничиваем ширину галереи */
+        .gallery-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Настройка самих картинок */
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1; /* Делаем картинки квадратными */
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #5b8cba; /* Синяя рамка как на макете */
+        }
+
+        /* --- Стилизация стрелок под макет --- */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #5b8cba; /* Синий цвет */
+            background: #e0e0e0; /* Серый фон */
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid #5b8cba;
+        }
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 20px; /* Размер иконки внутри стрелки */
+            font-weight: bold;
+        }
+
+        /* --- Стилизация пейджера (точек) --- */
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #5b8cba;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1; /* Активная точка ярче */
+        }
+        
+        /* Отступ для пагинации, чтобы не наезжала на картинки */
+        .swiper {
+            padding-bottom: 30px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <!-- Главный контейнер Swiper -->
+        <div class="swiper mySwiper">
+            <!-- Обертка для слайдов -->
+            <div class="swiper-wrapper">
+                
+                <!-- 8 слайдов с заглушками -->
+                <div class="swiper-slide"><img src="https://picsum.photos/id/10/500/500" alt="Фото 1"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/11/500/500" alt="Фото 2"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/12/500/500" alt="Фото 3"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/13/500/500" alt="Фото 4"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/14/500/500" alt="Фото 5"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/15/500/500" alt="Фото 6"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/16/500/500" alt="Фото 7"></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/id/17/500/500" alt="Фото 8"></div>
+                
+            </div>
+            
+            <!-- Кнопки навигации (стрелки) -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Пейджер (точки) -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- Подключение JS Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Инициализация и настройка слайдера -->
+    <script>
+        const swiper = new Swiper('.mySwiper', {
+            // Настройки адаптивности (Mobile First подход)
+            slidesPerView: 1,       // По умолчанию (на телефоне) - 1 слайд
+            spaceBetween: 20,       // Расстояние между слайдами
+            
+            // Адаптивность (брейкпоинты)
+            breakpoints: {
+                // когда ширина окна >= 768px
+                768: {
+                    slidesPerView: 3, // Показываем 3 слайда на ПК
+                    spaceBetween: 20
+                }
+            },
+
+            // Настройка навигации (стрелки)
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // Настройка пейджера (точки)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,  // Разрешаем кликать по точкам
+            },
+        });
+    </script>
+</body>
+</html>
