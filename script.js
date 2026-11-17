@@ -1,11 +1,13 @@
 (() => {
     'use strict';
 
-    const SLAPFORM_ENDPOINT = 'https://api.slapform.com/o6r8S7Igw';
+    // ==== НАСТРОЙКИ ====
+    const SLAPFORM_ENDPOINT = 'https://api.slapform.com/o6r8S7Igw'; // ← заменить на свой
     const STORAGE_KEY = 'feedback-form-draft';
     const URL_STATE_KEY = 'feedbackModal';
     const MODAL_STATE = 'open';
 
+    // ==== ЭЛЕМЕНТЫ ====
     const overlay = document.getElementById('modalOverlay');
     const openBtn = document.getElementById('openFormBtn');
     const closeBtn = document.getElementById('closeFormBtn');
@@ -130,6 +132,11 @@
         hideStatus();
         submitBtn.disabled = true;
         showStatus('loading', 'Отправка…');
+
+        // ⚠️ ВАЖНО: Здесь мы передаем данные под теми именами, 
+        // которые вы задали в новой форме "Developer".
+        // Если в интерфейсе Slapform поля называются по-другому, 
+        // поменяйте ключи (слева от двоеточия).
         const payload = {
             "name": form.elements.fullName.value.trim(),
             "email": form.elements.email.value.trim(),
@@ -179,17 +186,21 @@
         return history.state && history.state[URL_STATE_KEY] === MODAL_STATE;
     }
 
+    // Кнопки
     openBtn.addEventListener('click', () => openModal());
     closeBtn.addEventListener('click', () => closeModal());
 
+    // Клик по оверлею (не по самой карточке)
     overlay.addEventListener('mousedown', (e) => {
         if (e.target === overlay) closeModal();
     });
 
+    // Esc — закрыть
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && !overlay.hidden) closeModal();
     });
 
+    // «Назад» / «Вперёд» в браузере
     window.addEventListener('popstate', () => {
         if (isModalStateInUrl()) {
             openModal({ pushHistory: false });
@@ -198,7 +209,10 @@
         }
     });
 
+    // Если пользователь открыл страницу сразу с ?modal=feedback
+    // (например, по ссылке) — открываем попап и следим за состоянием
     if (isModalStateInUrl() || new URLSearchParams(location.search).get('modal') === 'feedback') {
+        // подстрахуемся: если state отсутствует, но в URL есть параметр — добавим state
         if (!isModalStateInUrl()) {
             history.replaceState({ [URL_STATE_KEY]: MODAL_STATE }, '', location.href);
         }
