@@ -1,8 +1,8 @@
-﻿(() => {
+(() => {
     'use strict';
 
     // ==== НАСТРОЙКИ ====
-    const SLAPFORM_ENDPOINT = 'https://api.slapform.com/wYVA0ciS4'; // ← заменить на свой
+    const SLAPFORM_ENDPOINT = 'https://api.slapform.com/o6r8S7Igw'; // ← заменить на свой
     const STORAGE_KEY = 'feedback-form-draft';
     const URL_STATE_KEY = 'feedbackModal';
     const MODAL_STATE = 'open';
@@ -110,7 +110,7 @@
         const response = await fetch(SLAPFORM_ENDPOINT, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // Slapform принимает JSON, если поля названы правильно
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(payload),
         });
@@ -133,13 +133,17 @@
         submitBtn.disabled = true;
         showStatus('loading', 'Отправка…');
 
+        // ⚠️ ВАЖНО: Здесь мы передаем данные под теми именами, 
+        // которые вы задали в новой форме "Developer".
+        // Если в интерфейсе Slapform поля называются по-другому, 
+        // поменяйте ключи (слева от двоеточия).
         const payload = {
-            "el_mwl6vggl_owekko41j": form.elements.fullName.value.trim(),
+            "name": form.elements.fullName.value.trim(),
             "email": form.elements.email.value.trim(),
             "phone": form.elements.phone.value.trim(),
-            "el_mwl75kqo_c88wrd1bo": form.elements.organization.value.trim(),
-            "el_mwl75wri_c1xl8pgbq": form.elements.message.value.trim(),
-            "el_mwl78jlg_w6g9tyyoh": form.elements.consent.checked ? 'Да' : 'Нет'
+            "organization": form.elements.organization.value.trim(),
+            "message": form.elements.message.value.trim(),
+            "consent": form.elements.consent.checked ? 'Да' : 'Нет'
         };
 
         try {
