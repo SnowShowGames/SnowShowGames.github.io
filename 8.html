@@ -1,0 +1,69 @@
+﻿<html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма обратной связи</title>
+    <link rel="stylesheet" href="style8.css">
+</head>
+<body>
+    <main class="page">
+        <h1>Обратная связь</h1>
+        <p>Нажмите кнопку ниже, чтобы открыть форму.</p>
+        <button id="openFormBtn" class="btn btn-primary">Написать нам</button>
+    </main>
+
+    <!-- Попап -->
+    <div id="modalOverlay" class="modal-overlay" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button id="closeFormBtn" class="modal-close" aria-label="Закрыть">×</button>
+
+            <h2 id="modalTitle" class="modal-title">Форма обратной связи</h2>
+
+            <form id="feedbackForm" class="feedback-form" novalidate>
+                <div class="form-field">
+                    <label for="fullName">ФИО <span class="req">*</span></label>
+                    <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                    <span class="error" data-error-for="fullName"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email <span class="req">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <span class="error" data-error-for="email"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="phone">Телефон <span class="req">*</span></label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    <span class="error" data-error-for="phone"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="organization">Организация</label>
+                    <input type="text" id="organization" name="organization" autocomplete="organization">
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Сообщение <span class="req">*</span></label>
+                    <textarea id="message" name="message" rows="3" required></textarea>
+                    <span class="error" data-error-for="message"></span>
+                </div>
+
+                <div class="form-field form-field--checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <span>Согласен с <a href="#" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+                    </label>
+                    <span class="error" data-error-for="consent"></span>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn btn-primary">Отправить</button>
+
+                <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/slapform@latest/dist/slapform.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

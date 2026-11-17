@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f6f8;
+    color: #1f2933;
+}
+
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 12px 20px;
+    transition: background .15s ease, transform .05s ease;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background: #1d4ed8;
+    }
+
+    .btn-primary:active {
+        transform: translateY(1px);
+    }
+
+    .btn-primary:disabled {
+        background: #93a5c4;
+        cursor: not-allowed;
+    }
+
+/* -------- Попап -------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, .55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 100;
+    animation: fadeIn .15s ease;
+}
+
+    .modal-overlay[hidden] {
+        display: none;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+    animation: slideUp .18s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-title {
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    line-height: 1;
+    color: #64748b;
+    cursor: pointer;
+    padding: 4px;
+}
+
+    .modal-close:hover {
+        color: #0f172a;
+    }
+
+/* -------- Форма -------- */
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+    .form-field label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+.req {
+    color: #dc2626;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: border-color .15s ease, background .15s ease;
+}
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        background: #fff;
+    }
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.form-field.invalid input,
+.form-field.invalid textarea {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.error {
+    color: #dc2626;
+    font-size: 12px;
+    min-height: 14px;
+}
+
+.form-field--checkbox {
+    gap: 2px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+    .checkbox-label input {
+        margin-top: 3px;
+    }
+
+    .checkbox-label a {
+        color: #2563eb;
+    }
+
+.form-status {
+    margin-top: 8px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+    .form-status[hidden] {
+        display: none;
+    }
+
+    .form-status.success {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .form-status.error {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .form-status.loading {
+        background: #e0e7ff;
+        color: #3730a3;
+    }
+
+/* -------- Мобильная версия: форма целиком помещается без прокрутки -------- */
+@media (max-width: 640px) {
+    body {
+        overflow: hidden;
+    }
+    /* фиксируем фон под попапом */
+
+    .modal-overlay {
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .modal {
+        max-width: none;
+        max-height: 100vh;
+        height: 100vh; /* на всю высоту */
+        border-radius: 0;
+        padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* без прокрутки */
+    }
+
+    .modal-title {
+        font-size: 16px;
+        margin: 0 0 8px;
+        padding-right: 32px;
+    }
+
+    .feedback-form {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-height: 0;
+    }
+
+    .form-field {
+        gap: 2px;
+        flex-shrink: 0;
+    }
+
+        .form-field label {
+            font-size: 13px;
+        }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        padding: 8px 10px;
+        font-size: 15px; /* >=16 на iOS лучше, но укладываемся в экран */
+    }
+
+    textarea {
+        min-height: 48px;
+    }
+
+    .checkbox-label {
+        font-size: 12.5px;
+    }
+
+    .error {
+        font-size: 11px;
+        min-height: 12px;
+    }
+
+    .form-status {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .btn[type="submit"] {
+        padding: 10px 16px;
+        margin-top: auto; /* прижимаем к низу */
+    }
+}
+
+/* На очень маленьких экранах сжимаем текст сообщения */
+@media (max-width: 640px) and (max-height: 640px) {
+    textarea {
+        min-height: 40px;
+    }
+
+    .form-field--checkbox .checkbox-label {
+        font-size: 12px;
+    }
+}
